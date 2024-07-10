@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "rootDirs": [
+      "./src",
+      "./prisma",
+      "./tests"
+    ],
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
+// {
+//   "compilerOptions": {
+//     "target": "es6",
+//     "module": "commonjs",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "rootDirs": [
+//       "./src",
+//       "./prisma",
+//       "./tests"
+//     ],
+//     "outDir": "./dist",
+//     "baseUrl": "./",
+//     // "paths": {
+//     //   "*": [
+//     //     "node_modules/*"
+//     //   ],
+//     //   "@/*": [
+//     //     "src/*"
+//     //   ]
+//     // }
+//   },
+//   // "include": [
+//   //   "src/**/*.ts"
+//   // ],
+//   // "exclude": [
+//   //   "node_modules"
+//   // ]
+// }

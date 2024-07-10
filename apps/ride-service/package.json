@@ -1,0 +1,32 @@
+{
+  "name": "ride-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --b index.ts",
+    "dev": "npx nodemon --turbo",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "prisma": "^5.16.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.1",
+    "@types/express": "^4.17.21",
+    "@types/node-fetch": "^2.6.11",
+    "@types/redis": "^4.0.11",
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "redis": "^4.6.15",
+    "zod": "^3.23.8"
+  }
+}

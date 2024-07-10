@@ -1,81 +1,66 @@
-# Turborepo starter
+# Ridehub : Go anywhere with Ridehub
 
-This is an official starter Turborepo.
+## Overview
+This project is built using a microservice architecture with Turborepo. It utilizes various technologies and services to deliver a scalable, maintainable, and efficient ride-sharing platform.
 
-## Using this example
+## Features and Technologies
 
-Run the following command:
+### Turborepo
+High-performance bundler for React Server Components and TypeScript codebases
 
-```sh
-npx create-turbo@latest
-```
+### Frontend
+- **Next.js**: Used for building the frontend of the application.
 
-## What's inside?
+### Backend Services
+- **User Service**: Manages user authentication and profile data.
+- **Driver Service**: Manages driver authentication, profile data, and status.
+- **Ride Service**: Calculates fares for car, bike, and auto rickshaw rides; computes distance and time from source to destination.
+- **Payment Service**: Handles payment processing and transaction management.
+- **Location Service**: Manages geographical data and updates locations using geohashing.
+- **Notification Service**: Sends notifications to users and drivers.
+- **Ride Matching Service**: Finds the nearest driver, handles ride acceptance/denial in real-time, and updates live location on the map.
 
-This Turborepo includes the following packages/apps:
+### Databases
+- **PostgreSQL**: Primary database for storing application data.
+- **Redis**: Used for real-time location updates using geohashing and message queues.
 
-### Apps and Packages
+### Validation and Error Handling
+- **Zod**: Validates data schemas.
+- **Global Error Handling**: Catches and logs server crashes globally.
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### Type Safety and ORM
+- **TypeScript**: Ensures type safety across the codebase.
+- **Prisma**: ORM for interacting with the PostgreSQL database.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### Maps and Geolocation
+- **Mapbox**: Provides map services for displaying locations and routes.
 
-### Utilities
+### Messaging and Real-time Data
+- **Redis Queues and Pub/Sub**: Used for message queues and real-time event handling.
+- **WebSockets**: Facilitates real-time data transfer, such as live location updates.
 
-This Turborepo has some additional tools already setup for you:
+### Security and Rate Limiting
+- **API Gateway Rate Limiting**: Protects the application from DDoS attacks.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### Code Quality 
+- **ESLint**: Ensures code quality by enforcing consistent code style.
+- **Prettier**: Formats code for readability and consistency.
+- **Pre-commit Hooks**: Runs automated checks before code is committed.
 
-### Build
+### Testing
+- **Vitest**: Used for running unit and integration tests.
 
-To build all apps and packages, run the following command:
+### Containerization and Orchestration
+- **Docker**: Containerizes the application services.
+- **Docker Compose**: Manages multi-container Docker applications with volumes for persistent data storage.
+- **Kubernetes**: Deploys and scales the application services.
 
-```
-cd my-turborepo
-pnpm build
-```
+### Monitoring
+- **New Relic**: Monitors application performance.
+- **Grafana**: Visualizes logs and metrics.
 
-### Develop
+### File Storage
+- **S3**: Stores and retrieves files.
 
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+### CI/CD Pipelines
+- **S3**: The project includes CI/CD pipelines for automated testing, building, and deployment.
