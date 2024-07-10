@@ -1,9 +1,9 @@
-import { Router } from 'express';
+import { Router } from "express";
 // import UserRoute from './UserRoute';
-import SessionRoute from './SessionRoute';
+import SessionRoute from "./SessionRoute";
 
 const router = Router();
 // router.use(UserRoute);
-router.use(SessionRoute)
+router.use(SessionRoute);
 
-export default router
+export default router;

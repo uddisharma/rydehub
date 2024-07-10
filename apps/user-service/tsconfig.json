@@ -2,11 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "rootDirs": [
-      "./src",
-      "./prisma",
-      "./tests"
-    ],
+    "rootDirs": ["./src", "./prisma", "./tests"],
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -44,4 +40,5 @@
 //   // "exclude": [
 //   //   "node_modules"
 //   // ]
+
 // }

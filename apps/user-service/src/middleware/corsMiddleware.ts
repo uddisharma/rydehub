@@ -1,8 +1,7 @@
-
-import cors from 'cors';
-import { RequestHandler } from 'express';
+import cors from "cors";
+import { RequestHandler } from "express";
 
 export const corsOptions: RequestHandler = cors({
-    origin: process.env.ORIGIN || 'http://localhost:3000',
-    credentials: true
+  origin: process.env.ORIGIN || "http://localhost:3000",
+  credentials: true,
 });

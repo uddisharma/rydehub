@@ -3,6 +3,6 @@ import { calculateRideFare } from "../controllers/CalculatefareController";
 
 const router = Router();
 
-router.route('/fare-estimate').post(calculateRideFare);
+router.route("/fare-estimate").post(calculateRideFare);
 
-export default router
+export default router;

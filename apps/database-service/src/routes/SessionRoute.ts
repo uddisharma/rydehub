@@ -1,16 +1,19 @@
-
-
-import express from 'express';
-import { setSession, getSession, destroySession, getCookies } from '../controllers/sessionController';
+import express from "express";
+import {
+  setSession,
+  getSession,
+  destroySession,
+  getCookies,
+} from "../controllers/sessionController";
 
 const router = express.Router();
 
-router.post('/setSession', setSession);
+router.post("/setSession", setSession);
 
-router.get('/getSession', getSession);
+router.get("/getSession", getSession);
 
-router.post('/destroySession', destroySession);
+router.post("/destroySession", destroySession);
 
-router.get('/getCookies', getCookies);
+router.get("/getCookies", getCookies);
 
 export default router;

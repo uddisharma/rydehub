@@ -1,8 +1,8 @@
-import { Router } from 'express'
-import calculateRideFareRoute from './FareCalculateRoute'
+import { Router } from "express";
+import calculateRideFareRoute from "./FareCalculateRoute";
 
-const router = Router()
+const router = Router();
 
-router.use(calculateRideFareRoute)
+router.use(calculateRideFareRoute);
 
-export default router
+export default router;
