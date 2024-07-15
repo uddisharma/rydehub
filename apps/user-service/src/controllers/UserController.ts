@@ -12,7 +12,6 @@ export const registerUser = async (
   clientId: string,
 ) => {
   const userToCreate = CreateUserInput.safeParse(userData);
-  // console.log(userToCreate)
   if (!userToCreate.success) {
     RedisManager.getInstance().sendToApi(clientId, {
       type: "REGISTER",

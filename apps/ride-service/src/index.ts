@@ -12,6 +12,7 @@ async function main() {
   while (true) {
     const response = await redisClient.rPop(`${FROM_RIDE}.messages` as string);
     if (!response) {
+      // Intentionally left empty
     } else {
       engine.process(JSON.parse(response));
     }
