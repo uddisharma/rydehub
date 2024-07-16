@@ -1,19 +1,19 @@
 import type { NextPage } from "next";
-import { AddressType, VisitedPlace } from "../types";
+import { PickUpType, VisitedPlace } from "../types";
 import { processAddress } from "../utils/address";
 import { useRecoilState } from "recoil";
 import { RideState } from "../atoms/ride";
 import { useRouter } from "next/navigation";
 
-const Address: NextPage<AddressType> = ({
+const PickUp: NextPage<PickUpType> = ({
   suggestions,
   className = "",
   onSuggestionClick,
-  recentlyVisited,
+  recentlyPickedUps,
   setQuery,
   setSuggestions,
   setCoordinates,
-  setRecentlyVisited,
+  setrecentlyPickedUps,
 }) => {
   const [ride, setRide] = useRecoilState(RideState);
   const router = useRouter();
@@ -27,11 +27,11 @@ const Address: NextPage<AddressType> = ({
 
     setRide((prevRideState) => ({
       ...prevRideState,
-      end_coordinates: recent?.coordinates?.end,
-      end_location: recent?.placeName,
+      start_coordinates_coordinates: recent?.coordinates?.start,
+      start_location: recent?.placeName,
     }));
 
-    const existingEntry = recentlyVisited.find((place) => {
+    const existingEntry = recentlyPickedUps.find((place) => {
       return (
         place.placeName === recent.placeName && place.coordinates.end.length > 0
       );
@@ -43,28 +43,28 @@ const Address: NextPage<AddressType> = ({
 
     if (existingEntry) {
       existingEntry.coordinates.end = recent?.coordinates?.end;
-      if (setRecentlyVisited)
-        setRecentlyVisited([
-          ...recentlyVisited.filter((place) => place !== existingEntry),
+      if (setrecentlyPickedUps)
+        setrecentlyPickedUps([
+          ...recentlyPickedUps.filter((place) => place !== existingEntry),
           existingEntry,
         ]);
 
-      const Removed = recentlyVisited.filter(
+      const Removed = recentlyPickedUps.filter(
         (place) => place?.placeName !== recent?.placeName,
       );
 
       localStorage.setItem(
-        "recentlyVisited",
+        "recentlyPickedUps",
         JSON.stringify([newVisitedPlace, ...Removed]),
       );
     } else {
       localStorage.setItem(
-        "recentlyVisited",
-        JSON.stringify([newVisitedPlace, ...recentlyVisited]),
+        "recentlyPickedUps",
+        JSON.stringify([newVisitedPlace, ...recentlyPickedUps]),
       );
     }
     if (ride?.end_coordinates) {
-      router.push("/pickup");
+      router.push("/preview");
     }
   };
 
@@ -103,7 +103,7 @@ const Address: NextPage<AddressType> = ({
               </div>
             );
           })
-        : recentlyVisited?.slice(0, 5)?.map((recent, index) => {
+        : recentlyPickedUps?.slice(0, 5)?.map((recent, index) => {
             const processedAddress = processAddress(recent.placeName)[0];
             return (
               <div
@@ -134,4 +134,4 @@ const Address: NextPage<AddressType> = ({
   );
 };
 
-export default Address;
+export default PickUp;

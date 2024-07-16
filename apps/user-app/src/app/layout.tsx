@@ -5,8 +5,8 @@ import AtomLayout from "./AtomLayout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Driver app",
-  description: "Driver app",
+  title: "User app",
+  description: "User app",
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-[410px] rounded-xl m-auto`}>
+      <body className={`${inter.className}  rounded-xl m-auto`}>
         <AtomLayout>{children}</AtomLayout>
       </body>
     </html>

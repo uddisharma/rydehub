@@ -8,12 +8,13 @@ import { Coordinates, SearchContainerProps, VisitedPlace } from "../types";
 import { useRecoilState } from "recoil";
 import { RideState } from "../atoms/ride";
 import { useLocationDetails, useUserLocation } from "../hooks/getLocation";
+import { useRouter } from "next/navigation";
 
 const SearchContainer: NextPage<SearchContainerProps> = ({
   className = "",
 }) => {
+  const router = useRouter();
   const [ride, setRide] = useRecoilState(RideState);
-
   const [query, setQuery] = useState<string>("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [coordinates, setCoordinates] = useState<Coordinates>({
@@ -24,6 +25,7 @@ const SearchContainer: NextPage<SearchContainerProps> = ({
 
   const { latitude, longitude } = useUserLocation();
   const locationDetails = useLocationDetails(latitude, longitude);
+
   useEffect(() => {
     if (locationDetails) {
       setRide({
@@ -125,6 +127,9 @@ const SearchContainer: NextPage<SearchContainerProps> = ({
           "recentlyVisited",
           JSON.stringify([newVisitedPlace, ...recentlyVisited]),
         );
+      }
+      if (ride?.end_coordinates) {
+        router.push("/pickup");
       }
     } catch (error) {
       console.error("Error fetching coordinates:", error);

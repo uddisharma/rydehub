@@ -1,9 +1,13 @@
+"use client";
 import type { NextPage } from "next";
 import FrameComponent1 from "../../components/frame-component1";
 import CardpickupDropOff from "../../components/cardpickup-drop-off";
 import AddressContents from "../../components/address-contents";
+import { useRecoilValue } from "recoil";
+import { RideState } from "../../atoms/ride";
 
 const Home2: NextPage = () => {
+  const ride = useRecoilValue(RideState);
   return (
     <div className="w-full relative bg-surface-surface-default-white overflow-hidden flex flex-col items-start justify-start pt-0 px-0 pb-[30px] box-border leading-[normal] tracking-[normal]">
       <img
@@ -83,7 +87,7 @@ const Home2: NextPage = () => {
             <p className="m-0">{`Where are you going `}</p>
             <p className="m-0">today?</p>
           </h2>
-          <CardpickupDropOff />
+          <CardpickupDropOff ride={ride} />
           <div className="self-stretch flex flex-row items-start justify-start gap-[16px]">
             <button className="cursor-pointer [border:none] py-4 px-[27px] bg-input-input-neutral-lighter rounded-radius-radius-56 flex flex-row items-center justify-center">
               <div className="flex flex-row items-center justify-start gap-[8px]">

@@ -1,11 +1,9 @@
 import type { NextPage } from "next";
-
-export type CardpickupDropOffType = {
-  className?: string;
-};
+import { CardpickupDropOffType } from "../types";
 
 const CardpickupDropOff: NextPage<CardpickupDropOffType> = ({
   className = "",
+  ride,
 }) => {
   return (
     <div
@@ -32,18 +30,16 @@ const CardpickupDropOff: NextPage<CardpickupDropOffType> = ({
           <div className="flex flex-col items-start justify-start">
             <div className="relative inline-block min-w-[46px]">Pick-up</div>
             <div className="relative font-medium text-text-text-neutral-dark inline-block min-w-[119px]">
-              My current location
+              {ride?.start_location}
             </div>
           </div>
         </div>
         <div className="self-stretch h-px relative box-border border-t-[1px] border-solid border-line-line-neutral-light" />
         <div className="self-stretch flex flex-row items-start justify-start">
           <div className="flex flex-col items-start justify-start">
-            <div className="relative inline-block min-w-[111px]">
-              Drop off (optional)
-            </div>
+            <div className="relative inline-block min-w-[111px]">Drop off</div>
             <div className="relative font-medium text-text-text-neutral-dark">
-              3517 W. Gray St. Utica, Pennsylvania 57867
+              {ride?.end_location}
             </div>
           </div>
         </div>
